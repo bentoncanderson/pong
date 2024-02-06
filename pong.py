@@ -1,4 +1,5 @@
 import pygame
+from controller import Controller
 
 # initialize pygame
 pygame.init()
@@ -22,12 +23,17 @@ pygame.draw.line(window, "white", [600, 50], [600, 750], 2)
 # pygame.draw.rect(window, "blue", [1100, 100, 10, 100], 5)
 
 # update pygame
+c = Controller()
 while True: 
+
+    # update controller
+    c.update()
+
     # draw player one's paddle
-    pygame.draw.rect(window, "blue", [100, 100, 10, 100], 5)
+    pygame.draw.rect(window, "blue", [100, c.top, 10, 100], 5)
 
     # draw player two's paddle 
-    pygame.draw.rect(window, "blue", [1100, 100, 10, 100], 5)
+    pygame.draw.rect(window, "blue", [1100, c.top, 10, 100], 5)
 
     # update display
     pygame.display.update()
